@@ -7,12 +7,7 @@ import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
 
 import com.jszbtb.ContentManagement.utils.Encrypt;
 
-/**
- * @Description:
- * @Author:		传智播客 java学院	袁新奇
- * @Company:	http://java.itcast.cn
- * @CreateDate:	2014年12月30日
- */
+
 public class CustomCredentialsMatcher extends SimpleCredentialsMatcher {
 	public boolean doCredentialsMatch(AuthenticationToken token,
 			AuthenticationInfo info) {

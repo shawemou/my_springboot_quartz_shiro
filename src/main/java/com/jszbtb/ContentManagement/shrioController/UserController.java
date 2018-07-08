@@ -38,13 +38,11 @@ public class UserController {
 	
 	@RequestMapping("login")
 	public String login(User user){
-		/*HttpSession session = request.getSession();*/
 		UsernamePasswordToken usernamePasswordToken=new UsernamePasswordToken(user.getName(),user.getPassword());
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(usernamePasswordToken);   //完成登录
             User myUser=(User) subject.getPrincipal();
-           /* session.setAttribute("user", user);*/
             return "redirect:toPage/index?type=redirect";
         } catch(Exception e) {
             return "redirect:toPage/login?type=redirect";//返回登录页面
