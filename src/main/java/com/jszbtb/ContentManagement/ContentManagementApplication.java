@@ -20,11 +20,14 @@ public class ContentManagementApplication {
 		SpringApplication.run(ContentManagementApplication.class, args);
 	}
 	
+	
+	//1,用到的job实例
 	@Bean
 	public QuarzJob getJob(){
 		return new QuarzJob();
 	}
 	
+	//2,使用MethodInvokingJobDetailFactoryBean建立任务
 	@Bean
 	public MethodInvokingJobDetailFactoryBean getFactoryBean(){
 		MethodInvokingJobDetailFactoryBean bean = new MethodInvokingJobDetailFactoryBean();
@@ -33,6 +36,8 @@ public class ContentManagementApplication {
 		return bean;
 	}
 	
+	
+	//3,使用CronTriggerBean建立规则，调度任务
 	@Bean
 	public CronTriggerFactoryBean getcf(){
 		CronTriggerFactoryBean bean = new CronTriggerFactoryBean();
@@ -41,6 +46,7 @@ public class ContentManagementApplication {
 		return bean;
 	}
 	
+	//4, 配置scheduler工厂
 	@Bean
 	public SchedulerFactoryBean getb(){
 		SchedulerFactoryBean bean = new SchedulerFactoryBean();
